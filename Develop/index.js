@@ -62,37 +62,38 @@ function init() {
     .then ((response) => {
         console.log(response);
         let { projectName, projectDescription, installation, usage, contributors, testing, license, github, email } = response;
-        fs.writeFile('readme.md', `
-        #${projectName}
         
-        ${projectDescription}
+fs.writeFile('README.md', `
+# ${projectName}
         
-        ## Installation
+${projectDescription}
         
-        ${installation}
+## Installation
         
-        ## Usage
+${installation}
         
-        ${usage}
+## Usage
         
-        ## Contributing
+${usage}
         
-        ${contributors}
+## Contributing
         
-        ## Testing Procedures
+${contributors}
         
-        ${testing}
+## Testing Procedures
         
-        ## License
+${testing}
         
-        ${license}
+## License
         
-        ## Additional Questions? 
+${license}
         
-        Contact me at: ${email}
-        https://www.github.com/${github}`, 'utf8', 
+## Additional Questions? 
         
-        (err) => err ? console.error(err) : console.log('Success!'))
+Contact me at: ${email}
+https://www.github.com/${github}`, 'utf8', 
+        
+(err) => err ? console.error(err) : console.log('Success!'))
     })
 }
 
