@@ -16,7 +16,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please provide any installation instructions for your project',
+        message: 'Please provide any installation instructions for your project.',
         name: 'installation',
     },
     {
@@ -56,7 +56,45 @@ const questions = [
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.
+        prompt(questions)
+    .then ((response) => {
+        console.log(response);
+        let { projectName, projectDescription, installation, usage, contributors, testing, license, github, email } = response;
+        fs.writeFile('readme.md', `
+        #${projectName}
+        
+        ${projectDescription}
+        
+        ## Installation
+        
+        ${installation}
+        
+        ## Usage
+        
+        ${usage}
+        
+        ## Contributing
+        
+        ${contributors}
+        
+        ## Testing Procedures
+        
+        ${testing}
+        
+        ## License
+        
+        ${license}
+        
+        ## Additional Questions? 
+        
+        Contact me at: ${email}
+        https://www.github.com/${github}`, 'utf8', 
+        
+        (err) => err ? console.error(err) : console.log('Success!'))
+    })
+}
 
 // Function call to initialize app
 init();
