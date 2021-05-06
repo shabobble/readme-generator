@@ -1,23 +1,23 @@
 
-# Readme Generator
+# Test
         
-An app that allows the user to quickly generate a professional README for a new project.
+Test
         
 ## Installation
-        
-npm install
-        
+~~~        
+Test
+~~~        
 ## Usage
         
-Testing
+Test
         
 ## Contributing
         
-Benjamin Hutchins
+Test
         
 ## Testing Procedures
         
-Run the app with node index.js in terminal and answer the questions. Check the created README.md file to see that the information was appended correctly.
+Test
         
 ## License
         
@@ -25,5 +25,6 @@ MIT License
         
 ## Additional Questions? 
         
-Contact me at: pksullivan@yahoo.com
-https://www.github.com/shabobble
+Contact me at: Test
+
+https://www.github.com/Test
