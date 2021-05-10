@@ -1,5 +1,5 @@
-let readMeProjectTitle = '';
-let readMeTableContents = '## Table of Contents \n '
+let readMeProjectName = '';
+let tableOfContents = '## Table of Contents \n '
 let readMeProjectDescription = '';
 let readMeInstallation = '';
 let readMeUsage = '';
@@ -29,12 +29,12 @@ let licenseArray = {
   wtfpl: { badge: 'WTFPL', name: 'Do What The F*ck You Want To Public License', link: 'wtfpl' }
 }
 
-function renderProjectTitle(name) {
+function renderProjectName(name) {
   if (name) {
     console.log(name)
-    readMeProjectTitle = `# ${name}`
+    readMeProjectName = `# ${name}`
   } else {
-    readMeProjectTitle = ''
+    readMeProjectName = ''
   }
 }
 
@@ -49,7 +49,6 @@ function renderProjectDescription(description) {
 function renderInstallation(install) {
   if (install) {
     readMeInstallation = `## Installation \n ${install}`
-    readMeTableContents = readMeTableContents + '- [Installation](#installation) \n'
   } else {
     readMeInstallation = ''
   }
@@ -58,7 +57,6 @@ function renderInstallation(install) {
 function renderUsage(usage) {
   if (usage) {
     readMeUsage = `## Usage \n ${usage}`
-    readMeTableContents = readMeTableContents + '- [Usage](#usage) \n'
   } else {
     readMeUsage = ''
   }
@@ -67,7 +65,6 @@ function renderUsage(usage) {
 function renderContributors(contributors) {
   if (contributors) {
     readMeContributors = `## Contributors \n ${contributors}`
-    readMeTableContents = readMeTableContents + '- [Contributors](#contributors) \n'
   } else {
     readMeContributors = ''
   }
@@ -76,7 +73,6 @@ function renderContributors(contributors) {
 function renderTesting(testing) {
   if (testing) {
     readMeTesting = `## Testing \n ${testing}`
-    readMeTableContents = readMeTableContents + '- [Testing](#testing) \n'
   } else {
     readMeTesting = ''
   }
@@ -84,7 +80,6 @@ function renderTesting(testing) {
 
 function renderContactMe(github, email) {
   readMeContactMe = `## Questions? \n You can contact me by e-mail at ${email} or on Github at https://www.github.com/${github}`
-  readMeTableContents = readMeTableContents + '- [Contact Me](#contactMe) \n'
 }
 
 function renderLicenseBadge(license) {
@@ -93,7 +88,6 @@ function renderLicenseBadge(license) {
     licenseBadge = `[![badge](https://img.shields.io/badge/license-${licenseArray[license]['badge']}-green)](https://choosealicense.com/licenses/${licenseArray[license]['link']})`
     licenseLink = `[${licenseArray[license]['name']}](https://choosealicense.com/licenses/${licenseArray[license]['link']})`
     licenseText = `## __License__ \n This project is licensed under the [${licenseArray[license]['name']}](https://choosealicense.com/licenses/${licenseArray[license]['link']}).`
-    readMeTableContents = readMeTableContents + '- [License](#license) \n'
   }
   else {
     licenseBadge = ''
@@ -102,11 +96,17 @@ function renderLicenseBadge(license) {
   }
 }
 
+function renderTableOfContents() {
+    tableOfContents = '## Table of Contents \n - [Installation](#installation) \n - [Usage](#usage) \n - [Contributors](#contributors) \n - [Testing](#testing) \n - [Contact Me](#contactMe) \n - [License](#license) \n'
+}
+
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   console.log(data)
-  renderProjectTitle(data.projTitle)
+  renderProjectName(data.projectName)
   renderProjectDescription(data.projectDescription)
+  renderTableOfContents()
   renderInstallation(data.installation)
   renderUsage(data.usage)
   renderContributors(data.contributors)
@@ -116,13 +116,13 @@ function generateMarkdown(data) {
 
   let markdown = `
   
-  ${readMeProjectTitle}
+  ${readMeProjectName}
   
   ${licenseBadge}
 
   ${readMeProjectDescription}
 
-  ${readMeTableContents}
+  ${tableOfContents}
 
 ---
 
