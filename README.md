@@ -45,7 +45,7 @@ My full-stack web development course is being offered as a collaboration between
 
 * Instructor - Benjamin Hutchins [GitHub](https://github.com/benhutchins)
 * TA - Andrew Hatfield
-
+* Assistance from Paul Marceau [GitHub](https://github.com/pmarceaujr)
   ## __License__ 
 
  This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit). 
